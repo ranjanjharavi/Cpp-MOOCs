@@ -10,9 +10,12 @@ summable sum(summable arr[], int length, summable s = 0) {
 
 int main(void) {
     int arr[4] = {4, 5, 6, 7};
-    int length = sizeof(arr)/sizeof(arr[0]);
+    double doubleArr[] = {1.1, 1.2, 1.3, 1.4, 1.5 };
 
-    cout << sum(arr, length, 2) << endl;
+    int length = sizeof(arr)/sizeof(arr[0]);
+    int len = sizeof(doubleArr)/sizeof(arr[0]);
+    cout << sum(arr, length, 2) << endl;    
+    cout << sum(doubleArr, len) << endl;
     
     return 0;
 }
