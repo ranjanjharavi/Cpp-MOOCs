@@ -330,14 +330,6 @@ private:
     PriorityQueue pqueue;
 };
 
-string learned_so_far()
-{
-    string str = "Although I have little introductory background in C, but still wanted to learn the C++. This course structure is designed in a way that ";
-    str += "student has been given introduction as to what to do and along with some of the good graph algorithms which are used a lot ";
-    str += "in the real world life. I think by the end of this course and hopefully second too, I'll be able to learn graph algorithms in a better way.";
-    return str;
-}
-
 int main(void)
 {
     // seed for random values.
@@ -363,11 +355,6 @@ int main(void)
         cin >> source_vertex;
 
     } while (source_vertex < 1 || source_vertex > vertices);
-
-    cout << endl
-         << "Introduction : " << endl
-         << learned_so_far() << endl
-         << endl;
 
     cout << "Dijkstra's Algo : " << endl;
 
