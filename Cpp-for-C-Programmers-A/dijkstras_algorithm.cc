@@ -296,20 +296,27 @@ private:
             vector<Node> adjacent_nodes = graph.adjacent_nodes(current_element);
 
             for (auto node : adjacent_nodes)
-            {
-                int vertex = node.first;
-                int weight = node.second;
+                relax_edge(node, current_element);
+        }
+    }
 
-                // If there is shorted path to v through u.
-                if (shortest_distances[vertex] > shortest_distances[current_element] + weight)
-                {
-                    // Updating distance of v
-                    shortest_distances[vertex] = shortest_distances[current_element] + weight;
-                    pqueue.push(shortest_distances[vertex], vertex);
+    void relax_edge(Node node, int current_element)
+    {
+        int vertex = node.first;
+        int weight = node.second;
 
-                    parent[vertex] = current_element;
-                }
-            }
+        int possible_new_weight = shortest_distances[current_element] + weight;
+
+        // If there is shorted path to vertex through current element.
+        if (shortest_distances[vertex] > possible_new_weight)
+        {
+            // Updating distance of vertex
+            shortest_distances[vertex] = possible_new_weight;
+
+            // push to the min heap created using pqueue.
+            pqueue.push(possible_new_weight, vertex);
+        
+            parent[vertex] = current_element;
         }
     }
 
